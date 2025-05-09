@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Initialize the Airflow database
+# Exit on any error
+set -e
+
+# Initialize the Airflow database if running the webserver
 if [ "$1" = "webserver" ]; then
   airflow db init
   airflow users create \
@@ -9,8 +12,8 @@ if [ "$1" = "webserver" ]; then
     --lastname User \
     --role Admin \
     --email admin@example.com \
-    --password admin
+    --password admin || echo "Admin user already exists."
 fi
 
-# Execute the Airflow command passed to the container
+# Pass all arguments to Airflow
 exec airflow "$@"
