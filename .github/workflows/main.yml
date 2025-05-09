@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE: docker push santosh0788/airflow-docker:1.0
+      DOCKER_IMAGE: santosh0788/airflow-docker:1.0
       DOCKER_TAG: latest
 
     steps:
@@ -34,9 +34,9 @@ jobs:
     # Step 3: Build the Docker image
     - name: Build Docker image
       run: |
-        docker build -t santosh0788/airflow-docker:1.0 .
+        docker build -t ${{ env.DOCKER_IMAGE }} .
 
     # Step 4: Push the Docker image to DockerHub
     - name: Push Docker image
       run: |
-        docker push santosh0788/airflow-docker:1.0 .
+        docker push ${{ env.DOCKER_IMAGE }}
