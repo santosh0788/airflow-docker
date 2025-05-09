@@ -1,16 +1,17 @@
 #!/bin/bash
+set -e
 
 # Initialize the Airflow database
-if [ "$1" = "webserver" ]; then
-  airflow db init
-  airflow users create \
+airflow db init
+
+# Create an admin user if not already created
+airflow users create \
     --username admin \
+    --password admin \
     --firstname Admin \
     --lastname User \
     --role Admin \
-    --email admin@example.com \
-    --password admin
-fi
+    --email admin@example.com
 
-# Execute the Airflow command passed to the container
-exec airflow "$@"
+# Start the Airflow webserver
+exec airflow webserver
