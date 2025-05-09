@@ -1,10 +1,12 @@
 #!/bin/bash
+
+# Exit on any failure
 set -e
 
-# Initialize the Airflow database
+# Initialize the Airflow metadata database
 airflow db init
 
-# Create an admin user if not already created
+# Create default user (optional, modify as needed)
 airflow users create \
     --username admin \
     --password admin \
