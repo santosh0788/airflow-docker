@@ -39,4 +39,4 @@ jobs:
     # Step 4: Push the Docker image to DockerHub
     - name: Push Docker image
       run: |
-        docker push $DOCKER_IMAGE:$DOCKER_TAG
+        docker push santosh0788/airflow-docker:1.0 .
