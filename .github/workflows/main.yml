@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE: your-dockerhub-username/airflow
+      DOCKER_IMAGE: santosh0788/airflow-docker
       DOCKER_TAG: latest
 
     steps:
