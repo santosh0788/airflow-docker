@@ -34,9 +34,9 @@ jobs:
     # Step 3: Build the Docker image
     - name: Build Docker image
       run: |
-        docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
+        docker build -t santosh0788/airflow-docker:1.0 .
 
     # Step 4: Push the Docker image to DockerHub
     - name: Push Docker image
       run: |
-        docker push $DOCKER_IMAGE:$DOCKER_TAG
+        docker push santosh0788/airflow-docker:1.0
