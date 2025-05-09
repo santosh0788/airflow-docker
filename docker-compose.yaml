@@ -1,0 +1,24 @@
+services:
+  airflow-webserver:
+    build: .
+    container_name: airflow-webserver
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+    volumes:
+      - ./logs:/opt/airflow/logs
+    command: webserver
+
+  airflow-scheduler:
+    build: .
+    container_name: airflow-scheduler
+    depends_on:
+      - airflow-webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+    volumes:
+      - ./logs:/opt/airflow/logs
+    command: scheduler
