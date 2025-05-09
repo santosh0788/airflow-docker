@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE: santosh0788/airflow-docker
+      DOCKER_IMAGE: docker push santosh0788/airflow-docker:1.0
       DOCKER_TAG: latest
 
     steps:
