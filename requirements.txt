@@ -1,2 +1,3 @@
 apache-airflow-providers-mysql
 requests
+RUN pip install "pyarrow>=10.0.1,<11.0.0"
