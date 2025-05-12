@@ -15,5 +15,5 @@ airflow users create \
     --role Admin \
     --email admin@example.com
 
-# Start the Airflow webserver
-exec airflow webserver
+# Start the Airflow webserver on all interfaces and correct port
+exec airflow webserver --host 0.0.0.0 --port 8080
